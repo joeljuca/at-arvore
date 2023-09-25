@@ -1,5 +1,6 @@
 defmodule Arvore.Entities.Entity do
   use Ecto.Schema
+  use SwissSchema, repo: Arvore.Repo
   import Ecto.Changeset
 
   schema "entities" do
