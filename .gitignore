@@ -35,3 +35,5 @@ arvore-*.tar
 npm-debug.log
 /assets/node_modules/
 
+# See: https://dev.to/joeljuca/introducing-iex-local-exs-2bfk
+.iex.local.exs
