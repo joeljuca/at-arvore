@@ -3,14 +3,18 @@ defmodule Arvore.Repo.Migrations.CreateEntities do
 
   def change do
     create table(:entities) do
-      add :name, :string
-      add :type, :string
-      add :inep, :string
-      add :parent, references(:entities, on_delete: :nothing)
+      timestamps(type: :utc_datetime)
 
-      timestamps()
+      add :parent_id, references(:entities)
+      add :inep, :string
+      add :type, :string, null: false
+      add :name, :string, null: false
     end
 
-    create index(:entities, [:parent])
+    create unique_index(:entities, [:inep])
+
+    create index(:entities, [:parent_id])
+    create index(:entities, [:type])
+    create index(:entities, [:name])
   end
 end
