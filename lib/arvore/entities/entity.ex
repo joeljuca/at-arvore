@@ -6,6 +6,7 @@ defmodule Arvore.Entities.Entity do
 
   schema "entities" do
     belongs_to :parent, Entity
+    has_many :children, Entity
 
     field :inep, :string
     field :type, Ecto.Enum, values: [:network, :school, :class], default: :school
