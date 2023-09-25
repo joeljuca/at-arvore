@@ -14,6 +14,12 @@ defmodule ArvoreWeb.Router do
     plug :accepts, ["json"]
   end
 
+  scope "/api/v2", ArvoreWeb do
+    pipe_through :api
+
+    resources "/partners/entities", EntityController, except: [:new, :edit]
+  end
+
   scope "/", ArvoreWeb do
     pipe_through :browser
 
