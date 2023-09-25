@@ -37,3 +37,7 @@ npm-debug.log
 
 # See: https://dev.to/joeljuca/introducing-iex-local-exs-2bfk
 .iex.local.exs
+
+# See: https://direnv.net
+.env
+.envrc
