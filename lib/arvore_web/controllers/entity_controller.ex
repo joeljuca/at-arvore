@@ -11,11 +11,11 @@ defmodule ArvoreWeb.EntityController do
     render(conn, :index, entities: entities)
   end
 
-  def create(conn, %{"entity" => entity_params}) do
-    with {:ok, %Entity{} = entity} <- Entities.create_entity(entity_params) do
+  def create(conn, params) do
+    with {:ok, %Entity{} = entity} <- Entities.create_entity(params) do
       conn
       |> put_status(:created)
-      |> put_resp_header("location", ~p"/api/entities/#{entity}")
+      |> put_resp_header("location", ~p"/api/v2/partners/entities/#{entity}")
       |> render(:show, entity: entity)
     end
   end
