@@ -7,6 +7,8 @@ I'll be taking notes as I work on this problem.
 - I've named a field `type` when it was supposed to be `entity_type`. I do think `type` is a better name because the `entity_` part goes duplicated when you're accessing it with an entity variable - commonly named `entity`, which results in statements like `entity.entity_type`. But in the end, it's just a nitchpick so I'm leaving it this way
 - Sorry, but I'm not implementing a GraphQL setup here (too much work already)
   - No load tests too :( but tests and CI are on its way
+- I've spent literally most of my time on this test **debugging GitHub Actions!** :weary:
+  - MSQL over GitHub Actions drove me nuts
 
 --  
 Joel Jucá
