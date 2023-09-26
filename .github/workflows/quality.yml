@@ -1,0 +1,46 @@
+name: quality
+
+on:
+  push:
+
+jobs:
+  style:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: erlef/setup-beam@v1
+        with:
+          otp-version: "26"
+          elixir-version: "1.15.6"
+      - uses: actions/cache@v3
+        with:
+          path: deps
+          key: ${{ runner.os }}-mix-${{ hashFiles('**/mix.lock') }}
+
+      - run: mix deps.get
+      - run: mix format --check-formatted
+
+  test:
+    runs-on: ubuntu-latest
+    services:
+      database:
+        image: mysql:8.1.0-oracle
+        ports:
+          - 3306:3306
+    steps:
+      - uses: actions/checkout@v3
+      - uses: erlef/setup-beam@v1
+        with:
+          otp-version: "26"
+          elixir-version: "1.15.6"
+      - uses: actions/cache@v3
+        with:
+          path: deps
+          key: ${{ runner.os }}-mix-${{ hashFiles('**/mix.lock') }}
+
+      - run: mix deps.get
+      - run: mix compile
+      - run: mix ecto.create
+      - run: mix ecto.migrate
+      - run: mix run priv/repo/seeds.exs
+      - run: mix test
