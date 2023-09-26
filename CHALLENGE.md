@@ -8,9 +8,9 @@ A modelagem deverá utilizar apenas uma entidade (`Entity`), que poderá represe
 
 ## Tarefas
 
-- [ ] Repositório Git
+- [x] Repositório Git
   - [x] Documentação
-  - [ ] CI/CD (eg.: `test`, `style`, `analysis`, etc.)
+  - [x] CI/CD (`style`, `test`)
 - [ ] Schema de entidades
   - [x] Campos `name`, `entity_type`, `inep`, e `parent_id`
   - [x] Validação via `Entity.changeset/2`
