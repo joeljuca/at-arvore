@@ -4,6 +4,10 @@
 
 My code at the technical assessment for the [back-end engineering position](https://arvore.gupy.io/jobs/5196898) at [Árvore](https://www.arvore.com.br).
 
+## Challenge
+
+See [`CHALLENGE.md`](CHALLENGE.md) (personal notes available in [`NOTES.md`](NOTES.md)).
+
 ## Setup
 
 This project is built with Elixir, Phoenix, and MySQL, so it has the following system dependencies:
