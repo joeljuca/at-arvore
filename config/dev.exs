@@ -1,8 +1,7 @@
 import Config
 
 # Configure your database
-database_url =
-  System.get_env("DEV_DATABASE_URL") || "mysql://root@localhost/arvore_dev"
+database_url = System.get_env("DATABASE_URL") || "mysql://root@localhost/arvore_dev"
 
 config :arvore, Arvore.Repo,
   url: database_url,
