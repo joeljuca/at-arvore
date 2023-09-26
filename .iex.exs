@@ -4,6 +4,7 @@ alias Arvore.Entities.Entity
 alias ArvoreWeb.EntityController
 alias ArvoreWeb.FallbackController
 alias ArvoreWeb.PageController
+alias ArvoreWeb.Repo
 alias ArvoreWeb.Router
 
 # Local dot-iex file (user/environment-specific, Git-ignored)
