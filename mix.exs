@@ -32,6 +32,7 @@ defmodule Arvore.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
+      {:ex_machina, "~> 2.7", only: [:dev, :test]},
       {:mix_test_watch, "~> 1.1", only: [:dev, :test]},
       {:swiss_schema, "~> 0.4"},
       {:phoenix, "~> 1.7.2"},
