@@ -1,11 +1,11 @@
 import Config
 
 # Configure your database
+database_url =
+  System.get_env("DEV_DATABASE_URL") || "mysql://root@localhost/arvore_dev"
+
 config :arvore, Arvore.Repo,
-  username: "root",
-  password: "",
-  hostname: "localhost",
-  database: "arvore_dev",
+  url: database_url,
   stacktrace: true,
   show_sensitive_data_on_connection_error: true,
   pool_size: 10

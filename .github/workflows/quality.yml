@@ -27,6 +27,9 @@ jobs:
         image: mysql:8.1.0-oracle
         ports:
           - 3306:3306
+        env:
+          MYSQL_ROOT_PASSWORD: please
+          DEV_DATABASE_URL: mysql://root:please@localhost/arvore_dev
     steps:
       - uses: actions/checkout@v3
       - uses: erlef/setup-beam@v1
