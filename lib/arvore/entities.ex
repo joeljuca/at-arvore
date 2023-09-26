@@ -38,6 +38,25 @@ defmodule Arvore.Entities do
   def get_entity!(id), do: Repo.get!(Entity, id)
 
   @doc """
+  Gets a single entity.
+
+  ## Examples
+
+      iex> get_entity(123)
+      {:ok, %Entity{}}
+
+      iex> get_entity(456)
+      {:error, :not_found}
+
+  """
+  def get_entity(id) do
+    case Repo.get(Entity, id) do
+      %Entity{} = entity -> {:ok, entity}
+      _ -> {:error, :not_found}
+    end
+  end
+
+  @doc """
   Creates a entity.
 
   ## Examples
