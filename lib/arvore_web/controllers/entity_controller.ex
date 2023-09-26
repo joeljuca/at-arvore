@@ -21,8 +21,9 @@ defmodule ArvoreWeb.EntityController do
   end
 
   def show(conn, %{"id" => id}) do
-    entity = Entities.get_entity!(id)
-    render(conn, :show, entity: entity)
+    with {:ok, entity} <- Entities.get_entity(id) do
+      render(conn, :show, entity: entity)
+    end
   end
 
   def update(conn, %{"id" => id} = params) do
