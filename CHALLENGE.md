@@ -6,6 +6,32 @@ Construir uma API usando Phoenix (Elixir) e o banco de dados MySQL, visando perm
 
 A modelagem deverá utilizar apenas uma entidade (`Entity`), que poderá representar qualquer nível da estrutura hierárquica.
 
+## Tarefas
+
+- [ ] Repositório Git
+  - [x] Documentação
+  - [ ] CI/CD (eg.: `test`, `style`, `analysis`, etc.)
+- [ ] Schema de entidades
+  - [x] Campos `name`, `entity_type`, `inep`, e `parent_id`
+  - [x] Validação via `Entity.changeset/2`
+    - [ ] Entidades do tipo `network` não têm `parent`/`parent_id`
+    - [x] Campos obrigatórios: `type` e `name`
+    - [x] Campo `parent` (e `parent_id`) referenciam schema `Entity`
+      - [x] Entidades não podem ser parent/child de si mesmas
+    - [ ] Campo `inep` aceito apenas em entidades do tipo `school`
+- [x] Endpoints de entidades
+  - [x] `POST /api/v2/partners/entities`
+  - [x] `GET /api/v2/partners/entities`
+  - [x] `PATCH /api/v2/partners/entities`
+  - [x] `DELETE /api/v2/partners/entities`
+- [ ] Testes E2E
+  - [ ] `POST /api/v2/partners/entities`
+  - [ ] `GET /api/v2/partners/entities`
+  - [ ] `PATCH /api/v2/partners/entities`
+  - [ ] `DELETE /api/v2/partners/entities`
+- [ ] Deploy
+  - [ ] Fly?
+
 ## Entidades
 
 As entidades serão segmentadas pelos seguintes tipos:
