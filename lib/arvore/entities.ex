@@ -57,6 +57,38 @@ defmodule Arvore.Entities do
   end
 
   @doc """
+  Returns a recursive list of entities related to the given entity.
+
+  ## Examples
+
+    iex> {:ok, entity} = get_entity(1)
+    {:ok, %Entity{}}
+
+    iex> get_entity_offspring(entity)
+    [%Entity{}, %Entity{}, ...]
+
+  """
+  def get_entity_offspring(%Entity{id: id}) do
+    cte = """
+      WITH RECURSIVE cte AS (
+        SELECT id FROM entities WHERE parent_id = ?
+        UNION
+        SELECT e.id id FROM cte o LEFT JOIN entities e ON o.id = e.parent_id
+      )
+      SELECT id FROM cte ORDER BY id
+    """
+
+    with {:ok, %{rows: rows}} <- Repo.query(cte, [id]),
+         entity_ids <- rows |> List.flatten() |> Enum.reject(&is_nil/1),
+         entities <- Repo.all(from e in Entity, where: e.id in ^entity_ids) do
+      entities
+    else
+      {:error, error} -> {:error, error}
+      error -> {:error, error}
+    end
+  end
+
+  @doc """
   Creates a entity.
 
   ## Examples
