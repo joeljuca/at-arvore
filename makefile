@@ -24,7 +24,7 @@ test:
 	mix test
 
 test.watch:
-	mix test.watch
+	MIX_ENV=test mix test.watch
 
 # Database
 

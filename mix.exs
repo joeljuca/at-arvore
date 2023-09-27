@@ -34,7 +34,7 @@ defmodule Arvore.MixProject do
     [
       {:faker, "~> 0.17", only: [:dev, :test]},
       {:ex_machina, "~> 2.7", only: [:dev, :test]},
-      {:mix_test_watch, "~> 1.1", only: [:dev, :test]},
+      {:mix_test_watch, "~> 1.1", only: [:test]},
       {:swiss_schema, "~> 0.4"},
       {:phoenix, "~> 1.7.2"},
       {:phoenix_ecto, "~> 4.4"},
