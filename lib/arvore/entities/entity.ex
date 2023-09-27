@@ -24,11 +24,17 @@ defmodule Arvore.Entities.Entity do
     |> unique_constraint(:inep)
     |> then(fn %{changes: changes, errors: _errors} = changeset ->
       parent_id = Map.get(changes, :parent_id)
+      type = Map.get(changes, :type)
 
-      if not is_nil(parent_id) and "#{parent_id}" == "#{entity.id}" do
-        changeset |> add_error(:parent_id, "cannot point to itself")
-      else
-        changeset
+      cond do
+        !is_nil(parent_id) and "#{parent_id}" == "#{entity.id}" ->
+          changeset |> add_error(:parent_id, "cannot point to itself")
+
+        !is_nil(parent_id) and :network in [entity.type, type] ->
+          changeset |> add_error(:parent_id, "is not allowed for network entities")
+
+        true ->
+          changeset
       end
     end)
   end

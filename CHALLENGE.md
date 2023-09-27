@@ -14,7 +14,7 @@ A modelagem deverá utilizar apenas uma entidade (`Entity`), que poderá represe
 - [ ] Schema de entidades
   - [x] Campos `name`, `entity_type`, `inep`, e `parent_id`
   - [x] Validação via `Entity.changeset/2`
-    - [ ] Entidades do tipo `network` não têm `parent`/`parent_id`
+    - [x] Entidades do tipo `network` não têm `parent`/`parent_id`
     - [x] Campos obrigatórios: `type` e `name`
     - [x] Campo `parent` (e `parent_id`) referenciam schema `Entity`
       - [x] Entidades não podem ser parent/child de si mesmas
