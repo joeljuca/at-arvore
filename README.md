@@ -1,6 +1,7 @@
 # joeljuca/at-arvore
 
 [![Creative Commons Attribution 4.0 International License](https://i.creativecommons.org/l/by/4.0/80x15.png "Creative Commons Attribution 4.0 International License")](https://creativecommons.org/licenses/by/4.0/ "Creative Commons Attribution 4.0 International License")
+[![quality](https://github.com/joeljuca/at-arvore/actions/workflows/quality.yml/badge.svg)](https://github.com/joeljuca/at-arvore/actions/workflows/quality.yml)
 
 My code at the technical assessment for the [back-end engineering position](https://arvore.gupy.io/jobs/5196898) at [Árvore](https://www.arvore.com.br).
 
