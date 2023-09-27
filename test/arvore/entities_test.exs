@@ -1,7 +1,48 @@
 defmodule Arvore.EntitiesTest do
   use Arvore.DataCase
   import Arvore.Factory
+  alias Arvore.Entities
   alias Arvore.Entities.Entity
+
+  describe "Entities.get_entity_offspring/1" do
+    test "returns an empty list when there's no offspring" do
+      entity = insert(:entity)
+
+      assert [] = Entities.get_entity_offspring(entity)
+    end
+
+    test "returns a list of entities' children" do
+      entity = insert(:entity)
+      insert(:entity, parent_id: entity.id)
+
+      assert [%Entity{}] = Entities.get_entity_offspring(entity)
+
+      insert(:entity, parent_id: entity.id)
+
+      assert [%Entity{}, %Entity{}] = Entities.get_entity_offspring(entity)
+    end
+
+    test "returns a recursive list of entities' children" do
+      e0 = insert(:entity)
+      insert(:entity, parent_id: e0.id)
+
+      e1 = insert(:entity, parent_id: e0.id)
+      insert(:entity, parent_id: e1.id)
+
+      e2 = insert(:entity, parent_id: e1.id)
+
+      e3 = insert(:entity, parent_id: e2.id)
+      insert(:entity, parent_id: e3.id)
+
+      offspring = Entities.get_entity_offspring(e0)
+
+      assert 6 = Enum.count(offspring)
+
+      Enum.each(offspring, fn entity ->
+        assert %Entity{} = entity
+      end)
+    end
+  end
 
   describe "Entity.changeset/2" do
     # I'll avoid implementing some basic tests here, in order to prioritize the
