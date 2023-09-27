@@ -24,11 +24,11 @@ A modelagem deverá utilizar apenas uma entidade (`Entity`), que poderá represe
   - [x] `GET /api/v2/partners/entities`
   - [x] `PATCH /api/v2/partners/entities`
   - [x] `DELETE /api/v2/partners/entities`
-- [ ] Testes E2E
-  - [ ] `POST /api/v2/partners/entities`
-  - [ ] `GET /api/v2/partners/entities`
-  - [ ] `PATCH /api/v2/partners/entities`
-  - [ ] `DELETE /api/v2/partners/entities`
+- [x] Testes E2E
+  - [x] `POST /api/v2/partners/entities`
+  - [x] `GET /api/v2/partners/entities`
+  - [x] `PATCH /api/v2/partners/entities`
+  - [x] `DELETE /api/v2/partners/entities`
 - [ ] Deploy
   - [ ] Fly?
 

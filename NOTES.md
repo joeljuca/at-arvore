@@ -9,6 +9,7 @@ I'll be taking notes as I work on this problem.
   - No load tests too :( but tests and CI are on its way
 - I've spent literally most of my time on this test **debugging GitHub Actions!** :weary:
   - MSQL over GitHub Actions drove me nuts
+- I've added some functional tests for reference. I'm not covering all cases but it should be enough to have an idea of my testing skills
 
 --  
 Joel Jucá
