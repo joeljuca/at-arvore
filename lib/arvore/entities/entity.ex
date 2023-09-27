@@ -12,6 +12,9 @@ defmodule Arvore.Entities.Entity do
     field :type, Ecto.Enum, values: [:network, :school, :class], default: :school
     field :name, :string
 
+    # offspring IDs (children, grandchildren, etc., recursively)
+    field :offspring, {:array, :integer}, virtual: true
+
     timestamps(type: :utc_datetime)
   end
 
